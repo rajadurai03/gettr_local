@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:gettr_demo/constants.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 import 'livelists.dart';
 import 'livemodel.dart';
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -27,9 +29,10 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
+        fontFamily: 'Antarctica Beta',
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Live'),
     );
   }
 }
@@ -47,23 +50,86 @@ class _MyHomePageState extends State<MyHomePage> {
   List<LiveModel> modelData = List<LiveModel>.empty(growable: true);
   List<CategoryList> categoryData = List<CategoryList>.empty(growable: true);
 
+  bool isLoadingVertical = false;
+
+  @override
+  void initState() {
+    _loadMoreVertical();
+    super.initState();
+  }
+
+  Future _loadMoreVertical() async {
+    // setState(() {
+    //   isLoadingVertical = true;
+    // });
+
+    // Add in an artificial delay
+    // await Future.delayed(const Duration(seconds: 2));
+
+    InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => LiveList(
+                        liveModelList: modelData,
+                      )));
+        },
+        child: Container(
+            padding: const EdgeInsets.only(left: 12, right: 24),
+            child: const Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                "View all",
+                style: TextStyle(
+                    fontWeight: FontWeight.w700, color: Colors.blueAccent),
+              ),
+            )));
+
+    // setState(() {
+    //   isLoadingVertical = false;
+    // });
+  }
+
   @override
   Widget build(BuildContext context) {
     modelData = supportsDataList;
     categoryData = categotyDataList;
     return Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(modelData[0].image!),
+                      // color: Colors.red,
+                    )),
+              ),
+            ),
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0,
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
+          title: Text(
+            widget.title,
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Column(children: [
             liveChatList(context),
             const Divider(),
             categoryFilter(context),
-           const Divider(),
+            const Divider(),
             liveData(context),
           ]),
         )
@@ -73,43 +139,66 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget liveChatList(BuildContext context) {
     return SizedBox(
-      height: kToolbarHeight * 1.8,
-      child: ListView.builder(
-          padding: const EdgeInsets.only(bottom: 8, top: 8),
-          scrollDirection: Axis.horizontal,
-          primary: false,
-          shrinkWrap: true,
-          itemCount: modelData.length,
-          itemBuilder: ((context, index) {
-            var data = modelData[index];
-
-            if (index < 6) {
-              return chatTile(context, data);
-            } else if (index == 6) {
-              return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LiveList(
-                                  liveModelList: modelData,
-                                )));
-                  },
-                  child: Container(
-                      padding: const EdgeInsets.only(left: 12, right: 24),
-                      child: const Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "View all",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.blueAccent),
-                        ),
-                      )));
-            } else {
-              return const SizedBox();
-            }
-          })),
+      height: kToolbarHeight * 1.5,
+      child: LazyLoadScrollView(
+        // isLoading: false,
+        onEndOfPage: () => InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LiveList(
+                            liveModelList: modelData,
+                          )));
+            },
+            child: Container(
+                padding: const EdgeInsets.only(left: 12, right: 24),
+                child: const Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "View all",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700, color: Colors.blueAccent),
+                  ),
+                ))),
+        // scrollDirection: Axis.vertical,
+        child: ListView.builder(
+            padding: const EdgeInsets.only(bottom: 8),
+            scrollDirection: Axis.horizontal,
+            primary: false,
+            shrinkWrap: true,
+            itemCount: modelData.length,
+            itemBuilder: ((context, index) {
+              var data = modelData[index];
+              // return chatTile(context, data);
+              if (index < 6) {
+                return chatTile(context, data);
+              } else if (index == 6) {
+                return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LiveList(
+                                    liveModelList: modelData,
+                                  )));
+                    },
+                    child: Container(
+                        padding: const EdgeInsets.only(left: 12, right: 24),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            "View all",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: AppColor().blueAccent),
+                          ),
+                        )));
+              } else {
+                return const SizedBox();
+              }
+            })),
+      ),
     );
   }
 
@@ -128,12 +217,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: axisSize,
                   margin: const EdgeInsets.only(bottom: 4),
                   decoration: BoxDecoration(
-                    color: model.status == 1 ? Colors.red : Colors.transparent,
+                    color: model.status == 1
+                        ? AppColor().redAccent
+                        : Colors.transparent,
                     // border color
                     shape: BoxShape.circle,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(1.5),
+                    padding: const EdgeInsets.all(2),
                     child: Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
@@ -158,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: const EdgeInsets.only(
                                 left: 6, right: 6, top: 2, bottom: 2),
                             decoration: BoxDecoration(
-                              color: Colors.red,
+                              color: AppColor().redAccent,
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: const Text(
@@ -166,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 10,
-                                  fontWeight: FontWeight.w600),
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -186,9 +277,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Padding(
                             padding: const EdgeInsets.all(1.5),
                             child: Container(
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Colors.blue,
+                                color: AppColor().blueAccent,
                               ), // inner content
                             ),
                           ),
@@ -234,16 +325,20 @@ class _MyHomePageState extends State<MyHomePage> {
               color: filter.getchecked! ? Colors.white : Colors.black),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           backgroundColor: Colors.white,
-          selectedColor: Colors.blueAccent,
+          selectedColor: AppColor().darkBlue,
           selected: filter.getchecked!,
           shape: StadiumBorder(
               side: BorderSide(
-                  color: filter.getchecked! ? Colors.blueAccent : Colors.grey,
+                  color: filter.getchecked!
+                      ? const Color(0XFF232255)
+                      : Colors.grey,
                   width: 0.5)),
           showCheckmark: false,
           onSelected: (bool value) {
             setState(() {
-              categoryData.forEach((data) => data.setchecked = false);
+              for (var data in categoryData) {
+                data.setchecked = false;
+              }
 
               if (filter.getchecked == false) {
                 filter.setchecked = true;
@@ -284,32 +379,62 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-
-          Positioned(top: 18,left:28,child:  Row(children: [
-            Container(
-
-                padding: const EdgeInsets.only(left:4,right:4,top:2,bottom:2),
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(2)),
-                    color: Colors.red
-                ),
-                child: Row(children: const [
-                  Icon(Icons.sensors,color: Colors.white,size: 12,),
-                  SizedBox(width: 2,),
-                  Text("LIVE",style: TextStyle(color: Colors.white,fontSize: 10),)
-                ],)
+            Positioned(
+              top: 18,
+              left: 22,
+              child: Row(
+                children: [
+                  Container(
+                      padding: const EdgeInsets.only(
+                          left: 4, right: 4, top: 2, bottom: 2),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2)),
+                          color: model.isLive == "LIVE"
+                              ? AppColor().redAccent
+                              : Colors.black54),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.sensors,
+                            color: Colors.white,
+                            size: 16,
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            model.isLive!,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      )),
+                  const SizedBox(width: 4),
+                  Text(
+                    model.views!,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-            const SizedBox(width: 4),
-            const Text("1.3M Views",style: TextStyle(color: Colors.white,fontSize: 10),)
-
-          ],),),
-
-          const Positioned(top: 18,right: 28,child:  Icon(Icons.more_horiz,color: Colors.white,) )
-
+            const Positioned(
+                top: 18,
+                right: 28,
+                child: Icon(
+                  Icons.more_horiz,
+                  color: Colors.white,
+                ))
           ],
         ),
         Container(
-          padding:const EdgeInsets.only(top: 8,bottom: 16,right: 16,left: 16),
+          padding:
+              const EdgeInsets.only(top: 8, bottom: 16, right: 16, left: 16),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -324,17 +449,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-            const  SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Expanded(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     model.streamTitle!,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.w500,height: 1.3),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500, height: 1.3),
                     maxLines: 2,
                   ),
                   const SizedBox(
@@ -351,9 +477,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 4,
                       ),
                       (model.verifiedUser! == true)
-                          ? const Icon(
+                          ? Icon(
                               Icons.check_circle,
-                              color: Colors.redAccent,
+                              color: AppColor().redAccent,
                               size: 16,
                             )
                           : const SizedBox(),
@@ -374,8 +500,48 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-const SizedBox(height:8)
+        const SizedBox(height: 8)
       ],
+    );
+  }
+}
+
+class DemoItem extends StatelessWidget {
+  final int position;
+
+  const DemoItem(
+    this.position, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    color: Colors.grey,
+                    height: 40.0,
+                    width: 40.0,
+                  ),
+                  SizedBox(width: 8.0),
+                  Text("Item $position"),
+                ],
+              ),
+              Text(
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed vulputate orci. Proin id scelerisque velit. Fusce at ligula ligula. Donec fringilla sapien odio, et faucibus tortor finibus sed. Aenean rutrum ipsum in sagittis auctor. Pellentesque mattis luctus consequat. Sed eget sapien ut nibh rhoncus cursus. Donec eget nisl aliquam, ornare sapien sit amet, lacinia quam."),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

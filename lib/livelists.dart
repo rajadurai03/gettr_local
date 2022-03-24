@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gettr_demo/constants.dart';
 
 import 'livemodel.dart';
 
@@ -12,17 +13,31 @@ class LiveList extends StatefulWidget {
   State<LiveList> createState() => _LiveListState();
 }
 
+String _selected = 'Most Relevant';
+int _selectedIndex = 0;
+List<String> _items = ['Most Relevant', 'New Activity'];
+
 class _LiveListState extends State<LiveList> {
   var axisSize = kToolbarHeight;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [filterMenu(), menuList()],
+      appBar: AppBar(
+          leading: IconButton(
+            icon:  Icon(Icons.arrow_back_ios, color: AppColor().blueAccent),
+            onPressed: () => Navigator.of(context).pop(),
           ),
+          centerTitle: true,
+          elevation: 0.5,
+          backgroundColor: Colors.white,
+          title: const Text(
+            'Followed Hosts',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          )),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [filterMenu(), menuList()],
         ),
       ),
     );
@@ -30,19 +45,24 @@ class _LiveListState extends State<LiveList> {
 
   Widget filterMenu() {
     return InkWell(
-      onTap: (){
-        
+      onTap: () {
+        showModal(context);
       },
       child: Container(
-        padding: EdgeInsets.all(16),
-        child: Row(
-          children:const [
-            Text("New activity",
-                style: TextStyle(fontWeight: FontWeight.w500)),
-            SizedBox(width: 8,),
-            Icon(Icons.keyboard_arrow_down,color: Colors.grey,)],
-        )
-      ),
+          padding: EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Text(_selected,
+                  style: const TextStyle(fontWeight: FontWeight.w500)),
+              const SizedBox(
+                width: 8,
+              ),
+              const Icon(
+                Icons.keyboard_arrow_down,
+                color: Colors.grey,
+              )
+            ],
+          )),
     );
   }
 
@@ -76,9 +96,9 @@ class _LiveListState extends State<LiveList> {
                     width: 4,
                   ),
                   (model.verifiedUser! == true)
-                      ? const Icon(
+                      ? Icon(
                           Icons.check_circle,
-                          color: Colors.redAccent,
+                          color: AppColor().redAccent,
                           size: 16,
                         )
                       : const SizedBox()
@@ -89,9 +109,9 @@ class _LiveListState extends State<LiveList> {
                 overflow: TextOverflow.ellipsis,
               ),
               trailing: model.status == 1
-                  ? const Text("LIVE",
+                  ? Text("LIVE",
                       style: TextStyle(
-                          color: Colors.redAccent, fontWeight: FontWeight.w600))
+                          color: AppColor().redAccent, fontWeight: FontWeight.w600))
                   : model.status == 2
                       ? Container(
                           width: 12,
@@ -103,14 +123,68 @@ class _LiveListState extends State<LiveList> {
                           child: Padding(
                             padding: const EdgeInsets.all(1.5),
                             child: Container(
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Colors.blue,
+                                color: AppColor().blueAccent,
                               ), // inner content
                             ),
                           ),
                         )
                       : const SizedBox());
+        });
+  }
+
+  void showModal(context) {
+    showModalBottomSheet(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25.0),
+            topRight: Radius.circular(25.0),
+          ),
+        ),
+        context: context,
+        builder: (context) {
+          return Container(
+            padding:
+                const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+            height: 120,
+            alignment: Alignment.center,
+            child: ListView.separated(
+                itemCount: _items.length,
+                separatorBuilder: (context, int) {
+                  return Column(
+                    children: const [
+                      SizedBox(
+                        height: 30,
+                      ),
+                      // Divider(),
+                    ],
+                  );
+                },
+                itemBuilder: (context, index) {
+                  return InkWell(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            _items[index],
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          _selectedIndex == index
+                              ? Icon(Icons.check_circle,
+                                  color: AppColor().blueAccent)
+                              : Container()
+                        ],
+                      ),
+                      onTap: () {
+                        setState(() {
+                          _selected = _items[index];
+                          _selectedIndex = index;
+                        });
+                        Navigator.of(context).pop();
+                      });
+                }),
+          );
         });
   }
 }

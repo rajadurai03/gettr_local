@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio:
   flutter_bloc:
+  lazy_load_scrollview: ^1.3.0
 
 dev_dependencies:
   flutter_test:
@@ -67,5 +68,9 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Antarctica Beta
+      fonts:
+        - asset: assets/font/Antarctica Beta-VF.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

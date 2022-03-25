@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gettr_demo/constants.dart';
 import 'package:gettr_demo/story_item.dart';
 import 'package:gettr_demo/story_json.dart';
@@ -158,15 +159,46 @@ class _MyHomePageState extends State<MyHomePage> {
           scrollDirection: Axis.horizontal,
           primary: false,
           shrinkWrap: true,
-          itemBuilder: (context, index) => StoryItem(
+          separatorBuilder: (context, index) => const SizedBox(
+            width: 10,
+          ),
+          itemCount: stories.length,
+          itemBuilder: (context, index) {
+            var data = modelData[index];
+            // return chatTile(context, data);
+            if (index < 6) {
+              return StoryItem(
                 img: stories[index]['img'],
                 name: stories[index]['name'],
                 isLive: stories[index]['isLive'],
-              ),
-          separatorBuilder: (context, index) => const SizedBox(
-                width: 10,
-              ),
-          itemCount: stories.length),
+              );
+            } else if (index == 6) {
+              return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LiveList(
+                              liveModelList: modelData,
+                            )));
+                  },
+                  child: Container(
+                      padding: const EdgeInsets.only(left: 12, right: 24),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "View all",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: AppColor().blueAccent),
+                        ),
+                      )));
+            } else {
+              return const SizedBox();
+            }
+          }
+
+          ),
     );
   }
 
@@ -353,34 +385,12 @@ class _MyHomePageState extends State<MyHomePage> {
               left: 22,
               child: Row(
                 children: [
-                  Container(
-                      padding: const EdgeInsets.only(
-                          left: 4, right: 4, top: 2, bottom: 2),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(2)),
-                          color: model.isLive == "LIVE"
-                              ? AppColor().redAccent
-                              : Colors.black54),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.sensors,
-                            color: Colors.white,
-                            size: 16,
-                          ),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          Text(
-                            model.isLive!,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )),
+                  SvgPicture.asset(
+                    assetLiveMenu,
+                    semanticsLabel: 'live now icon',
+                    height: 30,
+                    // width: 50,
+                  ),
                   const SizedBox(width: 4),
                   Text(
                     model.views!,
@@ -442,15 +452,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(color: Colors.grey),
                       ),
-                      const SizedBox(
-                        width: 4,
-                      ),
                       (model.verifiedUser! == true)
-                          ? Icon(
-                              Icons.check_circle,
-                              color: AppColor().redAccent,
-                              size: 16,
-                            )
+                          ? SvgPicture.asset(assetVerification,
+                              semanticsLabel: 'verification Logo')
                           : const SizedBox(),
                       const SizedBox(
                         width: 4,

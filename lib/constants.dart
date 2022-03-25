@@ -10,5 +10,5 @@ class AppColor {
 
 
 
- String assetVerification = 'assets/image/icon_verification.svg';
-String assetLiveMenu = 'assets/image/icon_live_menu_ellipsis.svg';
+String assetVerification = 'assets/image/icon_verification.svg';
+String assetLiveMenu = 'assets/image/icon_livestream_live.svg';

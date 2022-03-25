@@ -7,3 +7,8 @@ class AppColor {
   Color lightBlue = const Color(0xFF016edc);
   List<Color> storyColor = [const Color(0xFFcc0000),const Color(0xFFcc0000),const Color(0xFFcc0000)];
 }
+
+
+
+ String assetVerification = 'assets/image/icon_verification.svg';
+String assetLiveMenu = 'assets/image/icon_live_menu_ellipsis.svg';

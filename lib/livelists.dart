@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gettr_demo/constants.dart';
+import 'package:gettr_demo/widget.dart';
 
 import 'livemodel.dart';
 
@@ -23,6 +25,7 @@ class _LiveListState extends State<LiveList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
           leading: IconButton(
             icon:  Icon(Icons.arrow_back_ios, color: AppColor().lightBlue),
@@ -49,13 +52,13 @@ class _LiveListState extends State<LiveList> {
         showModal(context);
       },
       child: Container(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.only(left: 16,bottom: 8,top: 16),
           child: Row(
             children: [
               Text(_selected,
-                  style: const TextStyle(fontWeight: FontWeight.w500)),
+                  style: const TextStyle(fontWeight: FontWeight.w500,color: Colors.black87)),
               const SizedBox(
-                width: 8,
+                width: 2,
               ),
               const Icon(
                 Icons.keyboard_arrow_down,
@@ -75,8 +78,8 @@ class _LiveListState extends State<LiveList> {
           var model = widget.liveModelList[index];
           return ListTile(
               leading: Container(
-                width: axisSize - 6,
-                height: axisSize - 6,
+                width: axisSize - 16,
+                height: axisSize - 16,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
@@ -90,28 +93,28 @@ class _LiveListState extends State<LiveList> {
                   Text(
                     model.name!,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontWeight: FontWeight.w500,color: Colors.black87),
                   ),
                   const SizedBox(
                     width: 4,
                   ),
                   (model.verifiedUser! == true)
-                      ? Icon(
-                          Icons.check_circle,
-                          color: AppColor().redAccent,
-                          size: 16,
-                        )
+                      ? SvgPicture.asset(
+                      assetVerification,
+                      semanticsLabel: 'verification Logo'
+                  )
                       : const SizedBox()
                 ],
               ),
               subtitle: Text(
                 model.userID!,
                 overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: Colors.grey,fontSize: 14),
               ),
               trailing: model.status == 1
                   ? Text("LIVE",
                       style: TextStyle(
-                          color: AppColor().redAccent, fontWeight: FontWeight.w600))
+                          color: AppColor().redAccent, fontWeight: FontWeight.w600,fontSize: 12))
                   : model.status == 2
                       ? Container(
                           width: 12,
@@ -144,47 +147,77 @@ class _LiveListState extends State<LiveList> {
         ),
         context: context,
         builder: (context) {
-          return Container(
-            padding:
-                const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
-            height: 120,
-            alignment: Alignment.center,
-            child: ListView.separated(
-                itemCount: _items.length,
-                separatorBuilder: (context, int) {
-                  return Column(
-                    children: const [
-                      SizedBox(
-                        height: 30,
+          return
+            Container(
+                decoration: getBoxDecoration(),
+                padding: const EdgeInsets.all(16),
+                child: Wrap(
+                  children: [
+                    const SizedBox(
+                      height: kToolbarHeight / 2,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        width: kToolbarHeight / 1.5,
+                        height: 4,
+                        color: Colors.grey[200],
                       ),
-                      // Divider(),
-                    ],
-                  );
-                },
-                itemBuilder: (context, index) {
-                  return InkWell(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            _items[index],
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          _selectedIndex == index
-                              ? Icon(Icons.check_circle,
-                                  color: AppColor().lightBlue)
-                              : Container()
-                        ],
-                      ),
-                      onTap: () {
-                        setState(() {
-                          _selected = _items[index];
-                          _selectedIndex = index;
-                        });
-                        Navigator.of(context).pop();
-                      });
-                }),
-          );
+                    ),
+                    SizedBox(
+                      height: kToolbarHeight /1.5 ,
+                    ),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      primary: false,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.all(8),
+                      itemCount: _items.length,
+                      separatorBuilder: (context, int) {
+                        return Column(
+                          children: const [
+                            SizedBox(
+                              height: 30,
+                            ),
+                            // Divider(),
+                          ],
+                        );
+                      },
+                      itemBuilder: (BuildContext context, int index) {
+
+                        return InkWell(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  _items[index],
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                _selectedIndex == index
+                                    ? Icon(Icons.check_circle,
+                                    color: AppColor().blueAccent)
+                                    : Container()
+                              ],
+                            ),
+                            onTap: () {
+                              setState(() {
+                                _selected = _items[index];
+                                _selectedIndex = index;
+                              });
+                              Navigator.of(context).pop();
+                            });
+                      },
+                    ),
+                    const SizedBox(
+                      height: kToolbarHeight/1.5,
+                    ),
+
+
+                  ],
+                ));
+
+
+
         });
   }
 }

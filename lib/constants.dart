@@ -5,3 +5,8 @@ class AppColor {
   Color blueAccent = const Color(0xFF016edc);
   Color darkBlue = const Color(0xFF232255);
 }
+
+
+
+ String assetVerification = 'assets/image/icon_verification.svg';
+String assetLiveMenu = 'assets/image/icon_live_menu_ellipsis.svg';

@@ -25,7 +25,7 @@ class _LiveListState extends State<LiveList> {
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(
-            icon:  Icon(Icons.arrow_back_ios, color: AppColor().blueAccent),
+            icon:  Icon(Icons.arrow_back_ios, color: AppColor().lightBlue),
             onPressed: () => Navigator.of(context).pop(),
           ),
           centerTitle: true,
@@ -125,7 +125,7 @@ class _LiveListState extends State<LiveList> {
                             child: Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppColor().blueAccent,
+                                color: AppColor().lightBlue,
                               ), // inner content
                             ),
                           ),
@@ -172,7 +172,7 @@ class _LiveListState extends State<LiveList> {
                           ),
                           _selectedIndex == index
                               ? Icon(Icons.check_circle,
-                                  color: AppColor().blueAccent)
+                                  color: AppColor().lightBlue)
                               : Container()
                         ],
                       ),

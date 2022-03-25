@@ -99,7 +99,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '5.2M Views',
+    views: '5.2M views',
   ),
   LiveModel(
     userID: "@parthasarthi kanagasabai",
@@ -116,7 +116,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '1.3M Views',
+    views: '1.3M views',
   ),
   LiveModel(
     userID: "@Gopu_1245",
@@ -133,7 +133,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '8.2M Views',
+    views: '8.2M views',
   ),
   LiveModel(
     userID: "@venugopal_ramachandran",
@@ -150,7 +150,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '1.9M Views',
+    views: '1.9M views',
   ),
   LiveModel(
     userID: "@anandaraj_98",
@@ -167,7 +167,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '11.3M Views',
+    views: '11.3M views',
   ),
   LiveModel(
     userID: "@jagadeesan_vaithiyanathan_t.s",
@@ -184,7 +184,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '15.38M Views',
+    views: '15.38M views',
   ),
   LiveModel(
     userID: "@premkuar_gf",
@@ -201,7 +201,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '12.38M Views',
+    views: '12.38M views',
   ),
   LiveModel(
     userID: "@balamuragan_baskar_94",
@@ -218,7 +218,7 @@ List<LiveModel> supportsDataList = [
         "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '0.4M Views',
+    views: '0.4M views',
   ),
   LiveModel(
     userID: "@Ironman",
@@ -234,7 +234,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '5.2M Views',
+    views: '5.2M views',
   ),
   LiveModel(
     userID: "@parthasarthi kanagasabai",
@@ -251,7 +251,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '1.3M Views',
+    views: '1.3M views',
   ),
   LiveModel(
     userID: "@Gopu_1245",
@@ -268,7 +268,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '8.2M Views',
+    views: '8.2M views',
   ),
   LiveModel(
     userID: "@venugopal_ramachandran",
@@ -285,7 +285,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '1.9M Views',
+    views: '1.9M views',
   ),
   LiveModel(
     userID: "@anandaraj_98",
@@ -302,7 +302,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '11.3M Views',
+    views: '11.3M views',
   ),
   LiveModel(
     userID: "@jagadeesan_vaithiyanathan_t.s",
@@ -319,7 +319,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '15.38M Views',
+    views: '15.38M views',
   ),
   LiveModel(
     userID: "@premkuar_gf",
@@ -336,7 +336,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '12.38M Views',
+    views: '12.38M views',
   ),
   LiveModel(
     userID: "@balamuragan_baskar_94",
@@ -353,7 +353,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '0.4M Views',
+    views: '0.4M views',
   ),
   LiveModel(
     userID: "@Ironman",
@@ -369,7 +369,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '5.2M Views',
+    views: '5.2M views',
   ),
   LiveModel(
     userID: "@parthasarthi kanagasabai",
@@ -386,7 +386,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '1.3M Views',
+    views: '1.3M views',
   ),
   LiveModel(
     userID: "@Gopu_1245",
@@ -403,7 +403,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '8.2M Views',
+    views: '8.2M views',
   ),
   LiveModel(
     userID: "@venugopal_ramachandran",
@@ -420,7 +420,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '1.9M Views',
+    views: '1.9M views',
   ),
   LiveModel(
     userID: "@anandaraj_98",
@@ -437,7 +437,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '11.3M Views',
+    views: '11.3M views',
   ),
   LiveModel(
     userID: "@jagadeesan_vaithiyanathan_t.s",
@@ -454,7 +454,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '15.38M Views',
+    views: '15.38M views',
   ),
   LiveModel(
     userID: "@premkuar_gf",
@@ -471,7 +471,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '12.38M Views',
+    views: '12.38M views',
   ),
   LiveModel(
     userID: "@balamuragan_baskar_94",
@@ -488,7 +488,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '0.4M Views',
+    views: '0.4M views',
   ),
   LiveModel(
     userID: "@Ironman",
@@ -504,7 +504,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '5.2M Views',
+    views: '5.2M views',
   ),
   LiveModel(
     userID: "@parthasarthi kanagasabai",
@@ -521,7 +521,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '1.3M Views',
+    views: '1.3M views',
   ),
   LiveModel(
     userID: "@Gopu_1245",
@@ -538,7 +538,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '8.2M Views',
+    views: '8.2M views',
   ),
   LiveModel(
     userID: "@venugopal_ramachandran",
@@ -555,7 +555,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '1.9M Views',
+    views: '1.9M views',
   ),
   LiveModel(
     userID: "@anandaraj_98",
@@ -572,7 +572,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '11.3M Views',
+    views: '11.3M views',
   ),
   LiveModel(
     userID: "@jagadeesan_vaithiyanathan_t.s",
@@ -589,7 +589,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '15.38M Views',
+    views: '15.38M views',
   ),
   LiveModel(
     userID: "@premkuar_gf",
@@ -606,7 +606,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '12.38M Views',
+    views: '12.38M views',
   ),
   LiveModel(
     userID: "@balamuragan_baskar_94",
@@ -623,7 +623,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '0.4M Views',
+    views: '0.4M views',
   ),
   LiveModel(
     userID: "@Ironman",
@@ -639,7 +639,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '5.2M Views',
+    views: '5.2M views',
   ),
   LiveModel(
     userID: "@parthasarthi kanagasabai",
@@ -656,7 +656,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '1.3M Views',
+    views: '1.3M views',
   ),
   LiveModel(
     userID: "@Gopu_1245",
@@ -673,7 +673,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '8.2M Views',
+    views: '8.2M views',
   ),
   LiveModel(
     userID: "@venugopal_ramachandran",
@@ -690,7 +690,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '1.9M Views',
+    views: '1.9M views',
   ),
   LiveModel(
     userID: "@anandaraj_98",
@@ -707,7 +707,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '11.3M Views',
+    views: '11.3M views',
   ),
   LiveModel(
     userID: "@jagadeesan_vaithiyanathan_t.s",
@@ -724,7 +724,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '15.38M Views',
+    views: '15.38M views',
   ),
   LiveModel(
     userID: "@premkuar_gf",
@@ -741,7 +741,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '12.38M Views',
+    views: '12.38M views',
   ),
   LiveModel(
     userID: "@balamuragan_baskar_94",
@@ -758,7 +758,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '0.4M Views',
+    views: '0.4M views',
   ),
   LiveModel(
     userID: "@Ironman",
@@ -774,7 +774,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '5.2M Views',
+    views: '5.2M views',
   ),
   LiveModel(
     userID: "@parthasarthi kanagasabai",
@@ -791,7 +791,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'LIVE',
-    views: '1.3M Views',
+    views: '1.3M views',
   ),
   LiveModel(
     userID: "@Gopu_1245",
@@ -808,7 +808,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '8.2M Views',
+    views: '8.2M views',
   ),
   LiveModel(
     userID: "@venugopal_ramachandran",
@@ -825,7 +825,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '1.9M Views',
+    views: '1.9M views',
   ),
   LiveModel(
     userID: "@anandaraj_98",
@@ -842,7 +842,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '11.3M Views',
+    views: '11.3M views',
   ),
   LiveModel(
     userID: "@jagadeesan_vaithiyanathan_t.s",
@@ -859,7 +859,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '15.38M Views',
+    views: '15.38M views',
   ),
   LiveModel(
     userID: "@premkuar_gf",
@@ -876,7 +876,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '12.38M Views',
+    views: '12.38M views',
   ),
   LiveModel(
     userID: "@balamuragan_baskar_94",
@@ -893,7 +893,7 @@ List<LiveModel> supportsDataList = [
     "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/12/Iron-man-3-tony-stark-Armor-wars.jpg",
     streamChannel: "NewsMax",
     isLive: 'REPLAY',
-    views: '0.4M Views',
+    views: '0.4M views',
   ),
 
 ];

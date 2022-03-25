@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:gettr_demo/constants.dart';
+import 'package:gettr_demo/story_item.dart';
+import 'package:gettr_demo/story_json.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 import 'livelists.dart';
@@ -77,12 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         child: Container(
             padding: const EdgeInsets.only(left: 12, right: 24),
-            child: const Align(
+            child: Align(
               alignment: Alignment.centerRight,
               child: Text(
                 "View all",
                 style: TextStyle(
-                    fontWeight: FontWeight.w700, color: Colors.blueAccent),
+                    fontWeight: FontWeight.w700, color: AppColor().lightBlue),
               ),
             )));
 
@@ -138,74 +140,40 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget liveChatList(BuildContext context) {
+    // return SingleChildScrollView(
+    //   scrollDirection: Axis.horizontal,
+    //   child: Row(
+    //       children: List.generate(stories.length, (index) {
+    //         return StoryItem(
+    //           img: stories[index]['img'],
+    //           name: stories[index]['name'],
+    //           isLive: stories[index]['isLive'],
+    //         );
+    //       })),
+    // );
     return SizedBox(
-      height: kToolbarHeight * 1.5,
-      child: LazyLoadScrollView(
-        // isLoading: false,
-        onEndOfPage: () => InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => LiveList(
-                            liveModelList: modelData,
-                          )));
-            },
-            child: Container(
-                padding: const EdgeInsets.only(left: 12, right: 24),
-                child: const Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    "View all",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700, color: Colors.blueAccent),
-                  ),
-                ))),
-        // scrollDirection: Axis.vertical,
-        child: ListView.builder(
-            padding: const EdgeInsets.only(bottom: 8),
-            scrollDirection: Axis.horizontal,
-            primary: false,
-            shrinkWrap: true,
-            itemCount: modelData.length,
-            itemBuilder: ((context, index) {
-              var data = modelData[index];
-              // return chatTile(context, data);
-              if (index < 6) {
-                return chatTile(context, data);
-              } else if (index == 6) {
-                return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LiveList(
-                                    liveModelList: modelData,
-                                  )));
-                    },
-                    child: Container(
-                        padding: const EdgeInsets.only(left: 12, right: 24),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "View all",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: AppColor().blueAccent),
-                          ),
-                        )));
-              } else {
-                return const SizedBox();
-              }
-            })),
-      ),
+      height: kToolbarHeight * 2,
+      child: ListView.separated(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          scrollDirection: Axis.horizontal,
+          primary: false,
+          shrinkWrap: true,
+          itemBuilder: (context, index) => StoryItem(
+                img: stories[index]['img'],
+                name: stories[index]['name'],
+                isLive: stories[index]['isLive'],
+              ),
+          separatorBuilder: (context, index) => const SizedBox(
+                width: 10,
+              ),
+          itemCount: stories.length),
     );
   }
 
   Widget chatTile(BuildContext context, LiveModel model) {
     var axisSize = kToolbarHeight;
     return Container(
-        margin: EdgeInsets.only(left: 8, right: axisSize / 3),
+        // margin: EdgeInsets.only(left: 15, right:),
         alignment: Alignment.center,
         child: Column(
           children: [
@@ -279,7 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppColor().blueAccent,
+                                color: AppColor().lightBlue,
                               ), // inner content
                             ),
                           ),
@@ -303,6 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return SizedBox(
       height: kToolbarHeight - 8,
       child: ListView.builder(
+          padding: const EdgeInsets.only(left: 15, right: 15),
           scrollDirection: Axis.horizontal,
           primary: false,
           shrinkWrap: true,
